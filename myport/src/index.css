@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #f97316; /* Orange accent */
+  --bg-color: #111111;
+  --text-color: #f0f0f0;
+  --text-secondary-color: #a0a0a0;
+  --container-bg-color: #1c1c1c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- MODIFIED BODY STYLES --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  position: relative; /* Needed for the pseudo-element */
+  overflow-x: hidden; /* Prevents horizontal scrollbar from the glow */
+}
+
+/* --- ADD THIS NEW RULE FOR THE GLOW EFFECT --- */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  /* Creates a circular gradient from orange to transparent */
+  background: radial-gradient(circle, var(--primary-color), transparent 80%);
+  opacity: 0.2; /* Makes the glow very subtle */
+  filter: blur(100px); /* Applies a strong blur for a soft effect */
+  z-index: -1; /* Pushes the glow behind all content */
+  transform: translateY(-50%); /* Moves it partially off-screen for a better look */
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}

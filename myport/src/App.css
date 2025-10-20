@@ -1,0 +1,527 @@
+/* General Button Styles */
+.btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--container-bg-color);
+  border-color: var(--text-color);
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Add these properties to make the navbar fixed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--bg-color);
+
+  /* Adjust padding to align content correctly */
+  padding: 2rem; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow */
+}
+
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  position: relative; /* Needed for the underline pseudo-element */
+  text-decoration: none;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding-bottom: 5px; /* Adds space for the underline */
+}
+
+/* --- NEW: Underline pseudo-element --- */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #E06200;
+  transition: width 0.3s ease-in-out;
+}
+
+/* --- MODIFIED: Hover effect styles --- */
+.nav-link:hover {
+  color: #E06200; /* New hover color */
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Animate width to 100% on hover */
+}
+
+/* --- MODIFIED: Active link now also uses new color and underline --- */
+.nav-link.active {
+  color: #E06200;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%; /* Show underline for the active link */
+}
+
+
+/* Hero Section Styles */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh; /* Changed from calc() to ensure it fills the viewport */
+  gap: 2rem;
+
+  /* Add padding-top to push it down from under the fixed navbar */
+  padding-top: 120px; 
+}
+
+.hero-content {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-intro {
+  font-size: 1.25rem;
+  color: var(--text-secondary-color);
+}
+
+.hero-name {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  color: var(--text-secondary-color);
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  background-color: var(--container-bg-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  max-width: fit-content;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 120px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+}
+
+/* Hero Image Styles */
+.hero-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.hero-image-container::after {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(28, 28, 28, 0.7);
+  border-radius: 50%;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-image {
+  max-width: 450px;
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+/* Services Section Styles */
+.services-section {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.services-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.services-header p {
+  color: var(--text-secondary-color);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: var(--container-bg-color);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  text-align: left;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-color);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+}
+
+/* ... (keep all your existing styles) ... */
+
+
+/* --- ADD THESE NEW STYLES AT THE END --- */
+
+/* About Section Styles */
+.about-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--container-bg-color);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-header p {
+  color: var(--text-secondary-color);
+  font-size: 1.1rem;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.about-image-container,
+.about-text-content {
+  flex: 1; /* Each container takes up half the space */
+}
+
+.about-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image-container::after { /* Reusing the circular background from Hero */
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(28, 28, 28, 0.7);
+  border-radius: 50%;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-image {
+  max-width: 400px;
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+.about-text-content p {
+  color: var(--text-secondary-color);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.about-text-content .btn {
+  display: inline-flex; /* Aligns icon and text */
+  align-items: center;
+  gap: 0.75rem; /* Space between icon and text */
+  font-weight: 600;
+}
+
+.portfolio-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--container-bg-color);
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.portfolio-header h2 {
+  font-size: 2.5rem;
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  background-color: var(--container-bg-color);
+  color: var(--text-secondary-color);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #2a2a2a;
+  color: var(--text-color);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.portfolio-card {
+  background-color: var(--container-bg-color);
+  border-radius: 12px;
+  overflow: hidden; /* Ensures the image corners are rounded */
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.portfolio-info {
+  padding: 1.5rem;
+}
+
+.portfolio-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-info p {
+  color: var(--text-secondary-color);
+}
+.contact-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--container-bg-color);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-header p {
+  color: var(--text-secondary-color);
+  font-size: 1.1rem;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background-color: var(--container-bg-color);
+  border: 1px solid #3a3a3a;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-secondary-color);
+}
+
+/* Specific grid placements */
+.contact-form textarea {
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form input[placeholder="Timeline"] {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.contact-form button {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  justify-self: end;
+  align-self: end;
+  width: auto;
+}
+
+/* Custom dropdown arrow */
+.select-wrapper {
+  position: relative;
+  grid-column: 2 / 3; /* Ensure it stays in the second column */
+}
+
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: '⌄';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-secondary-color);
+  font-size: 1.5rem;
+}
